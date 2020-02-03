@@ -47,9 +47,15 @@ Stream & OUT = SerialBT;
 Stream & OUT = Serial;
 #endif
 
+<<<<<<< HEAD
+String tzKey = "TP7PG1Q6YGA1";                     // API key from https://timezonedb.com/register
+String owKey = "d2c231f228a3cb4e58f7be569f10c959";                     // API key from https://home.openweathermap.org/api_keys
+String softAPpass = "ConFigMe";   // password for SoftAP config, minimum 8 characters
+=======
 String tzKey;                     // API key from https://timezonedb.com/register
 String owKey;                     // API key from https://home.openweathermap.org/api_keys
 String softAPpass = "ConFigMe";   // password for SoftAP config and WebServer logon, minimum 8 characters
+>>>>>>> b1ee54b86ebd611aecd361d26c0588f1060b6641
 uint8_t brightness = 255;         // 0-255 display brightness
 bool milTime = true;              // set false for 12hour clock
 String location;                  // zipcode or empty for geoIP location
@@ -108,6 +114,7 @@ void setup() {
   readSPIFFS(); // fetch stored configuration
 
   display.begin(16);
+  display.setDriverChip(FM6126A);
   display_ticker.attach(0.002, display_updater);
   display.clearDisplay();
   display.setFont(&TomThumb);
